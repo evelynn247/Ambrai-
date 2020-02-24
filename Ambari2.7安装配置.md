@@ -314,3 +314,16 @@ ambari-server start
 登陆浏览器访问: http://192.168.162.41:8080/，利用界面部署集群。
 
 初始密码admin  admin 
+
+## 7.解决端口被占用问题
+
+```linux
+netstat -apn | grep 8080
+### 如下
+```
+
+![image-20200224091435104](C:\Users\evelynnn\AppData\Roaming\Typora\typora-user-images\image-20200224091435104.png)
+
+杀死当前进程
+
+kill -9 8191 
