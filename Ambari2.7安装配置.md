@@ -124,12 +124,11 @@ rpm -ev <rpm包名> --nodeps
 ### 2. 搭建mysql5.7的yum源
 
 ```
-# 下载mysql5.7的rpm包
+1.下载mysql5.7的rpm包
 wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-# 安装第一步下载的rpm文件，安装成功后/etc/yum.repos.d/目录下会增加两个文件
+2.安装mysql源，安装成功后/etc/yum.repos.d/目录下会增加两个文件
 yum -y install mysql57-community-release-el7-11.noarch.rpm
-# 查看mysql57的安装源是否可用，如不可用请自行修改配置文件（/etc/yum.repos.d/mysql-community.repo）使mysql57下面的enable=1
-# 若有mysql其它版本的安装源可用，也请自行修改配置文件使其enable=0
+3.查看mysql57的安装源是否可用，如不可用请自行修改配置文件（/etc/yum.repos.d/mysql-community.repo）使mysql57下面的enable=1 若有mysql其它版本的安装源可用，也请自行修改配置文件使其enable=0
 yum repolist enabled | grep mysql
 ```
 
