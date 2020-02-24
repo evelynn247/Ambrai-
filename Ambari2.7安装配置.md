@@ -56,6 +56,8 @@ setenforce 0
 # 查看selinux状态
 getenforce
 # disabled为永久关闭，permissive为临时关闭，enforcing为开启
+或者编辑
+vim /etc/sysconfig/selinux 
 ```
 
 ## 四、免密登陆
@@ -142,6 +144,8 @@ yum install mysql-community-server
 ```
 # 启动mysql服务
 service mysqld start
+停止数据库
+service mysqld stop
 # 查看root密码
 grep "password" /var/log/mysqld.log
 # 登陆mysql
@@ -151,21 +155,30 @@ Enter password:
 set global validate_password_policy=0;
 set global validate_password_length=4;
 # 立即修改密码，执行其他操作报错：
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
-# 我们创建密码为root123
+ALTER USER 'root'@'localhost'IDENTIFIED BY 'chang@104386'
+# 我们创建密码为chang@104386
 ```
 
 ### 5. 新增ambari用户并增加权限
 
 ```
-mysql -uroot -proot123
-CREATE USER 'ambari'@'%' IDENTIFIED BY 'ambari';
-GRANT ALL PRIVILEGES ON *.* TO 'ambari'@'%';
-CREATE USER 'ambari'@'localhost' IDENTIFIED BY 'ambari';
-GRANT ALL PRIVILEGES ON *.* TO 'ambari'@'localhost';
-CREATE USER 'ambari'@'node1.ambari.com' IDENTIFIED BY 'ambari';
-GRANT ALL PRIVILEGES ON *.* TO 'ambari'@'node1.ambari.com';  //本地主机名
-FLUSH PRIVILEGES;
+mysql -uroot -p
+chang@104386
+
+##允许本地 IP访问localhost的Mysql数据库
+ create user 'changxiaowei'@'localhost' identified by 'chang@104386‘
+ 允许外网IP访问数据库editest，本命令包含上面的命令，是所有的IP都可以访问该数据库
+ create user 'changxiaowei'@'%' identified by 'chang@104386';
+ flush privileges;
+ 创建数据库
+ create database cswdb DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+ 将数据库cswdb赋权给用户changxiaowei
+ grant all privileges on `cswdb`.* to 'changxiaowei'@'localhost' identified by 'chang@104386' with grant option;
+ grant all privileges on `cswdb`.* to 'changxiaowei'@'%' identified by 'chang@104386'    with grant option;
+ flush privileges;
+ 退出登录
+ mysql -u changxiaowei -p
+ chang@104386
 ```
 
 
@@ -226,6 +239,8 @@ name=ambari
 baseurl=http://node1.ambari.com/CentOS-7/ambari-2.6.0.0
 enabled=1
 gpgcheck=0
+下面两步没有必要执行了 
+直接执行安装即可
 ```
 
 - 新建HDP.repo文件
