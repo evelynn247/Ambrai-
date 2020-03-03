@@ -6,7 +6,7 @@
 
 ### 软件环境
 
-![img](images\1.png)
+![](images/1.png)
 
 ## 二、修改主机名和hosts文件
 
@@ -288,9 +288,9 @@ echo server.jdbc.driver.path=/usr/share/java/mysql-connector-java.jar >> /etc/am
 ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
 ```
 
-![img](images\640.webp.jpg)
+![](images\640.webp.jpg)
 
-![img](images\640.jfif)
+![img](images/640.jfif)
 
 ### 5. 初始化数据库
 
@@ -321,7 +321,7 @@ netstat -apn | grep 8080
 ### 如下
 ```
 
-![image-20200224091435104](images\image-20200224091435104.png)
+![](images/image-20200224091435104.png)
 
 杀死当前进程
 
