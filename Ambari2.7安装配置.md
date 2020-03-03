@@ -6,7 +6,7 @@
 
 ### 软件环境
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/BQQRPo0PQq53HfNpESn5H56p7KhsickEDiciaQjrepKM36zibR2Kkw37PXQicXnjqQdS1vSibZ6O2ogAtfRZbywvVyBQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](images\1.png)
 
 ## 二、修改主机名和hosts文件
 
@@ -288,9 +288,9 @@ echo server.jdbc.driver.path=/usr/share/java/mysql-connector-java.jar >> /etc/am
 ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
 ```
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/BQQRPo0PQq53HfNpESn5H56p7KhsickEDI2hob9eRk6qXhJh3iciaqCS24tichPo1nrEpubalNo2YsGibcUFWlVP1YQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](images\640.webp.jpg)
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/BQQRPo0PQq53HfNpESn5H56p7KhsickEDRPnydVP1BBvC8yYicnzwmkJsZlRTVLMqg6agcMMial4XeqLkBgHE5Iiag/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](images\640.jfif)
 
 ### 5. 初始化数据库
 
@@ -321,8 +321,9 @@ netstat -apn | grep 8080
 ### 如下
 ```
 
-![image-20200224091435104](C:\Users\evelynnn\AppData\Roaming\Typora\typora-user-images\image-20200224091435104.png)
+![image-20200224091435104](images\image-20200224091435104.png)
 
 杀死当前进程
 
 kill -9 8191 
+
